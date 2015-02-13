@@ -16,25 +16,32 @@ textX=$(( $columnNumbers/2 - $textSize/2 ))
 # echo 'Text position '  $textY ' ' $textX
 
 # getting current time
-time="$(date +%H%M%S)"
+hours="$(date +%H)"
+minutes="$(date +%M)"
+seconds="$(date +%S)"
+
+# convert to hex
+hours=$(echo "obase=16; $hours" | bc)
+minutes=$(echo "obase=16; $minutes" | bc)
+secondes=$(echo "obase=16; $seconds" | bc)
 
 # display text
 
 # first linebreak before printing anything
 echo '\n'
 for ((i=1;i<=lineNumbers;i++)); do
-	if [ $i -eq $textY ] ; then
-		for ((j=1;j<=textX;j++)); do
-			printf '_'
-		done
-		printf $time
-		for ((j=1;j<=textX;j++)); do
-			printf '_'
-		done
-	else
-		for ((j=1;j<=columnNumbers;j++)); do
-			printf '_'
-		done
-	fi
-	printf '\n'
+    if [ $i -eq $textY ] ; then
+        for ((j=1;j<=textX;j++)); do
+            printf '_'
+        done
+        printf $hours:$minutes:$seconds
+        for ((j=1;j<=textX;j++)); do
+            printf '_'
+        done
+    else
+        for ((j=1;j<=columnNumbers;j++)); do
+            printf '_'
+        done
+    fi
+    printf '\n'
 done
