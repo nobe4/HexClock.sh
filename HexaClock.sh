@@ -24,6 +24,7 @@ seconds="$(date +%S)"
 hours=$(echo "obase=16; $hours" | bc)
 if [ $(date +%H) -lt 17 ];then
     hours=$(echo "0")$hours
+    textX=$(($textX - 1))
 fi
 minutes=$(echo "obase=16; $minutes" | bc)
 secondes=$(echo "obase=16; $seconds" | bc)
