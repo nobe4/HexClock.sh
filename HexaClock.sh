@@ -22,7 +22,7 @@ seconds="$(date +%S)"
 
 # convert to hex
 hours=$(echo "obase=16; $hours" | bc)
-if [ $(date +%H) -lt 17 ];then
+if [ $(date +%H) -lt 16 ];then
     hours=$(echo "0")$hours
     textX=$(($textX - 1))
 fi
