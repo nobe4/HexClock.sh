@@ -11,7 +11,7 @@ textSize=6 # hhmmss
 
 # calculating the text position
 textY=$(( $lineNumbers/2 ))
-textX=$(( $columnNumbers/2 - $textSize/2 ))
+textX=$(( $columnNumbers/2 - $textSize/2 - 1))
 
 # echo 'Text position '  $textY ' ' $textX
 
